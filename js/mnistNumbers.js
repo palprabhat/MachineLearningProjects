@@ -94,7 +94,6 @@ function accuracy(actual_labels, predicted_labels){
 function drawNumber(number){
   let x = 0;
   let y = 0;
-  // let pixel = number;
   noStroke();
   background(255,0,0);
 
@@ -219,7 +218,6 @@ function predictNumber(){
     inputs[i] = bright / 255.0;
   }
 
-  // image(img, 0, 0);
   drawNumber(inputs)
 
   let out_number = nn.predict(inputs);
