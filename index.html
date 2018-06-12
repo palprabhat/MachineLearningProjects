@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="author" content="Prabhat Kumar Pal">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0" />
+
+  <meta property="og:title" content="BouncyBall">
+  <meta property="og:description" content="Avoid obstacles and take Bouncy ball as far as you.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" itemprop="image" content="http://www.prabhatpal.com/meta-images/bouncy-ball.png">
+  <meta property="og:image:width" content="255">
+  <meta property="og:image:height" content="255">
+  <meta property="og:url" content="http://prabhatpal.com/portfolio/mini_games/BouncyBall/index.html">
+  <meta name="twitter:card" content="summary">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/addons/p5.dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.sound.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bouncy.min.css">
+  <link rel="icon" type="image/png" href="../../../images/favicon.png">
+
+  <!-- <script src="js/gameEngine.js"></script> -->
+  <!-- <script src="js/ball.js"></script> -->
+  <!-- <script src="js/pillar.js"></script> -->
+  <!-- <script src="js/ground.js"></script> -->
+  <!-- <script src="js/cloud.js"></script> -->
+  <script src="js/matrix.js"></script>
+  <script src="js/neuralNetwork.js"></script>
+  <script src="js/mnistNumbers.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113076611-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113076611-1');
+  </script>
+
+  <style>
+    .btn{
+      width: 150px;
+      margin: 15px;
+    }
+    .label{
+      margin: 15px;
+      font-size: 16px;
+    }
+    .adjust-position{
+      width: 50%;
+      margin: auto;
+    }
+  </style>
+</head>
+<body class="body-container">
+  <div class="container">
+    <div class="adjust-position">
+      <div id="draw-space"></div>
+
+      <div>
+        <button onclick="return predictNumber();" class="btn btn-primary">Predict</button>
+        <button onclick="return clearScreen();" class="btn btn-primary">Clear</button>
+        <button onclick="return randomNumber();" class="btn btn-primary">Random Number</button>
+      </div>
+      <div><label id="predictLabel" class="label label-warning"></label></div>
+    </div>
+  </div>
+</body>
+</html>
