@@ -15,7 +15,6 @@ let nn, lbl;
 let weights = [];
 let bias = [];
 
-
 // http://stackoverflow.com/questions/962802#962890
 function shuffleArray(array) {
   var tmp, current, top = array.length;
@@ -95,7 +94,7 @@ function drawNumber(number){
   let x = 0;
   let y = 0;
   noStroke();
-  background(255,0,0);
+  background(0);
 
   if(!(number == undefined)){
     for(let k = 0; k < recordNum; k++){
@@ -155,12 +154,18 @@ function setup(){
     success: function(data) {loadWeights(data);}
   });
 
+  if(windowWidth < 768){
+    wt = windowWidth - 31;
+    ht = windowWidth - 31;
+    pixelWt = (wt/pixel);
+    pixelht = (ht/pixel);
+  }
 
   let cnv = createCanvas(wt, ht);
-
-  let x_pos = (windowWidth - width) / 2;
   cnv.parent("draw-space");
-  // cnv.position(x_pos, 10);
+  if(windowWidth <= 768){
+    cnv.touchMoved(touchMovedOnCanvas);
+  }
 
   background(0);
   noStroke();
@@ -203,10 +208,16 @@ function setup(){
 function draw(){
   strokeWeight(0);
   fill(255);
-  if(mouseIsPressed){
-    rect(mouseX, mouseY, 60, 60);
+  if(mouseIsPressed && windowWidth > 768){
+    rect(mouseX, mouseY, wt/10, wt/10);
   }
 }
+
+function touchMovedOnCanvas(){
+  rect(mouseX, mouseY, wt/10, wt/10);
+  event.preventDefault();
+}
+
 
 function predictNumber(){
   let inputs = [];
@@ -218,12 +229,11 @@ function predictNumber(){
     inputs[i] = bright / 255.0;
   }
 
-  drawNumber(inputs)
+  // drawNumber(inputs)
 
   let out_number = nn.predict(inputs);
 
-  lbl.innerHTML = "Neural Network thinks its a " + out_number[0];
-  console.log(out_number);
+  lbl.innerHTML = "Neural Network predicted it to be a " + out_number[0];
 }
 
 function clearScreen(){

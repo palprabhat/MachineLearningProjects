@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta name="author" content="Prabhat Kumar Pal">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0" />
+  <meta name="description" content="A Neural Network library to predict numbers drawn on the screen">
 
   <meta property="og:title" content="MNIST Numbers">
   <meta property="og:description" content="A Neural Network library to predict numbers drawn on the screen">
@@ -12,7 +13,7 @@
   <meta property="og:image" itemprop="image" content="">
   <meta property="og:image:width" content="255">
   <meta property="og:image:height" content="255">
-  <meta property="og:url" content="http://prabhatpal.com/portfolio/mini_games/BouncyBall/index.html">
+  <meta property="og:url" content="http://prabhatpal.com/portfolio/MachineLearning/BouncyBall/index.html">
   <meta name="twitter:card" content="summary">
 
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -39,6 +40,9 @@
   </script>
 
   <style>
+    #draw-space{
+      margin-top: 15px;
+    }
     .btn{
       width: 150px;
       margin: 15px;
@@ -46,25 +50,40 @@
     .label{
       margin: 15px;
       font-size: 16px;
+      height: 20px;
     }
     .adjust-position{
       width: 50%;
       margin: auto;
+    }
+    .description{
+      margin-top: 15px;
+    }
+    
+    @media(max-width: 768px){
+      .adjust-position{
+        width: 100%;
+      }
+      .btn{
+        width: 125px;
+        margin: 5px;
+      }
     }
   </style>
 </head>
 <body class="body-container">
   <div class="container">
     <div class="adjust-position">
-      <div class="description"><label>This is a learning project to demonstrate the working of Neural Networks. The Neural Network is trained on MNIST Handwritten digits. It contains 70,000 images with 28x28 pixel each. 60,000 images are used for training the network and rest 10,000 samples are used for testing. The neural network architecture has 1 input layer with 784 input nodes, 2 hidden layers each with 16 hidden nodes, and 1 output layer with 10 nodes.</label><div>
+      <div class="description text-justify">Draw a number from 0 - 9 and click Predict. The trained neural network will try to predict the number.<div>
       <div id="draw-space"></div>
-
       <div>
+        <button onclick="return randomNumber();" class="btn btn-primary">Random Number</button>
         <button onclick="return predictNumber();" class="btn btn-primary">Predict</button>
         <button onclick="return clearScreen();" class="btn btn-primary">Clear</button>
-        <button onclick="return randomNumber();" class="btn btn-primary">Random Number</button>
       </div>
-      <div><label id="predictLabel" class="label label-warning"></label></div>
+      <div id="predictLabel" class="label label-warning"></div>
+      <div class="description text-justify">This is a learning project to demonstrate the working of Neural Networks. The Neural Network is trained on MNIST Handwritten digits. It contains 70,000 images with 28x28 pixel each. 60,000 images are used for training the network and rest 10,000 samples are used for testing. The neural network architecture has 1 input layer with 784 input nodes, 2 hidden layers each with 16 hidden nodes, and 1 output layer with 10 nodes.<div>
+      
     </div>
   </div>
 </body>
