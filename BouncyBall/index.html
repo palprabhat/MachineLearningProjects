@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="author" content="Prabhat Kumar Pal">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0" />
+
+  <meta property="og:title" content="BouncyBall">
+  <meta property="og:description" content="Avoid obstacles and take Bouncy ball as far as you.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" itemprop="image" content="http://www.prabhatpal.com/meta-images/bouncy-ball.png">
+  <meta property="og:image:width" content="255">
+  <meta property="og:image:height" content="255">
+  <meta property="og:url" content="http://prabhatpal.com/portfolio/mini_games/BouncyBall/index.html">
+  <meta name="twitter:card" content="summary">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.sound.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bouncy.min.css">
+  <link rel="icon" type="image/png" href="../../../images/favicon.png">
+
+  <script src="js/gameEngine.js"></script>
+  <script src="js/ball.js"></script>
+  <script src="js/pillar.js"></script>
+  <script src="js/ground.js"></script>
+  <script src="js/cloud.js"></script>
+  <script src="js/matrix.js"></script>
+  <script src="js/neuralNetwork.js"></script>
+  <script src="js/geneticAlgorithm.js"></script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113076611-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-113076611-1');
+  </script>
+</head>
+<body class="body-container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3 hidden-sm hidden-xs"></div>
+      <div class="col-md-6 no-padding">
+        <center>
+          <div id="gameWindow"></div>
+        </center>
+      </div>
+      <div class="col-md-3">
+        <div class="instruction">
+          <h3 class="text-center">Bouncy Ball</h3>
+          <p>
+            Click on the screen, or use your spacebar to get started.
+          </p>
+          <p>
+            Inspired by popular Flappy Bird game.
+          </p>
+        </div>
+        <div>
+          <p>Generation: <span id="generation"></span></p>
+          <p>Score: <span id="score"></span></p>
+          <p>Best Score: <span id="best_score"></span></p>
+          <p>Alive: <span id="alive"></span></p>
+        </div>
+        <div>
+          <button type="button" class="btn" onclick="speed = 1;">x1</button>
+          <button type="button" class="btn" onclick="speed = 2;">x2</button>
+          <button type="button" class="btn" onclick="speed = 5;">x5</button>
+          <button type="button" class="btn" onclick="speed = 10;">x10</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  $(document).ready(function(){
+    $("#gameWindow").on("click touchend", function(e){
+      e.preventDefault();
+    });
+  });
+  </script>
+</body>
+</html>
