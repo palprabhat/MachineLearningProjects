@@ -1,1 +1,1 @@
-# MnistNumbers
+# Machine Learning Projects
