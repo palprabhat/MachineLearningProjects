@@ -1,9 +1,29 @@
 .body-container {
-  background-color: #A9A9A9;
+  background-color: #f3f3f3;
 }
 
 .no-padding {
   padding: 0px;
+}
+
+.no-margin {
+  margin: 0px;
+}
+
+.margin-top-50 {
+  margin-top: 50px;
+}
+
+.box-shadow {
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .15), 0 3px 6px 0 rgba(0, 0, 0, .23);
+}
+
+.btn {
+  border-radius: 0px;
+}
+
+.btn.active.focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn:active:focus, .btn:focus {
+  outline: none;
 }
 
 .instruction {
@@ -15,5 +35,34 @@
     margin-top: 100px;
     margin-left: -45px;
     margin-right: 50px;
+  }
+}
+
+/*===============================================================
+                      NAV MENU
+===============================================================*/
+.navbar-default{
+  background: #fff;
+}
+
+.navbar-nav-hor {
+  width: 180px;
+  height: 50px;
+  text-align: center;
+}
+
+.navbar-nav-hor a {
+  height: 50px;
+}
+
+.navbar-nav-hor a span i {
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+  .navbar-nav-hor {
+    width: 130px;
   }
 }

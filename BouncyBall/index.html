@@ -14,13 +14,17 @@
     <meta property="og:image:height" content="255">
     <meta property="og:url" content="http://prabhatpal.com/portfolio/MachineLearning/BouncyBall/index.html">
     <meta name="twitter:card" content="summary">
+
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/addons/p5.sound.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bouncy.min.css">
     <link rel="icon" type="image/png" href="../../../images/favicon.png">
+
     <script src="js/gameEngine.js"></script>
     <script src="js/ball.js"></script>
     <script src="js/pillar.js"></script>
@@ -32,26 +36,40 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113076611-1"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
+        window.dataLayer = window.dataLayer || [];
 
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'UA-113076611-1');
+        gtag('config', 'UA-113076611-1');
     </script>
+
+    <title>Bouncy Ball</title>
 </head>
 
 <body class="body-container">
-    <div class="container-fluid">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container" id="myNavbar">
+            <ul class="nav navbar-nav no-margin">
+                <li class="navbar-nav-hor active">
+                    <a id="nav-home" href="http://www.prabhatpal.com/">
+                        <span><i class="fa fa-home"></i></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Content -->
+    <div class="container-fluid margin-top-50">
         <div class="row">
-            <div class="col-md-3 hidden-sm hidden-xs"></div>
-            <div class="col-md-6 no-padding">
+            <div class="col-md-6 col-md-offset-3 no-padding">
                 <center>
                     <div id="gameWindow"></div>
                 </center>
             </div>
             <div class="col-md-3">
-                <div class="instruction">
+                <div class="instruction box-shadow">
                     <h3 class="text-center">Bouncy Ball using ML with Genitic Algorithm</h3>
                     <p>Generation: <span id="generation"></span></p>
                     <p>Score: <span id="score"></span></p>
@@ -69,13 +87,6 @@
             </div>
         </div>
     </div>
-    <script>
-    $(document).ready(function() {
-        $("#gameWindow").on("click touchend", function(e) {
-            e.preventDefault();
-        });
-    });
-    </script>
 </body>
 
 </html>

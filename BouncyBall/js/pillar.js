@@ -7,7 +7,6 @@
  * @param {[Number]} groundHeight [height of the bottom pillar]
  */
 function Pillar(s, groundHeight) {
-    // this.top = s.random(50, s.height - groundHeight - 250);
     this.top = Math.floor(Math.random() * ((s.height - groundHeight - 250) - 50 + 1)) + 50;
     this.w = 80;
     this.space = 200;

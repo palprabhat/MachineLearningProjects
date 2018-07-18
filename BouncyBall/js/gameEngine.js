@@ -2,7 +2,11 @@
 // Prabhat Pal (www.prabhatpal.com)
 
 //global variables
-var tile, groundTiles;
+var tile;
+var groundTiles;
+var Y_norm;
+var X_norm;
+var top_norm;
 var balls = [];
 var deadBalls = [];
 var ground = [];
@@ -22,10 +26,6 @@ var bestScore = 0;
 var speed = 1;
 var pillarOffset = 30;
 
-var Y_norm;
-var acc_norm;
-var X_norm;
-var top_norm;
 
 /**
  * [Initialize game parameter, set action for key or mouse pressed, provide game flow]
@@ -41,6 +41,7 @@ var gameWindow = function(game) {
 
     game.setup = function() {
         cnv = game.createCanvas(wd, ht);
+        cnv.class("box-shadow");
         game.strokeWeight(4);
         game.stroke(84, 56, 71);
         createCloud();
@@ -53,6 +54,8 @@ var gameWindow = function(game) {
 
         for (var i = 0; i < speed; i++) {
             generatePillars();
+            moveGround();
+            moveCloud();
             for (var p in pillar) {
                 pillar[p].update();
             }
@@ -63,8 +66,6 @@ var gameWindow = function(game) {
 
             for (var ball in balls) {
                 Y_norm = balls[ball].Y / (game.height - ground[0].height);
-                // Y_norm = (Y_norm < 0) ? 0 : Y_norm;
-                acc_norm = Math.pow((balls[ball].acc / 10 > 1) ? 1 : balls[ball].acc / 10, 2);
                 X_norm = (pillar[index_pillar].X - balls[ball].X) / (game.width - balls[ball].X - pillarOffset);
                 top_norm = (pillar[index_pillar].top + 100) / game.height;
 
@@ -116,9 +117,6 @@ var gameWindow = function(game) {
             balls[ball].display();
         }
 
-        moveGround();
-        moveCloud();
-
         for (var t in ground) {
             ground[t].display();
         }
@@ -139,8 +137,6 @@ function initialize(createBalls) {
 
     if (createBalls) {
         for (var i = 0; i < population; i++) {
-            // brain = new NeuralNetwork(2, 6, 1, 1, 0.2);
-            // balls[i] = new Ball(canvas, brain);
             balls[i] = createBall();
         }
     }
